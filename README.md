@@ -93,25 +93,49 @@ Unter **SSL/TLS → Overview** auf **Full (strict)** stellen.
 `Flexible` erzeugt zusammen mit GitHub Pages eine Endlos-Weiterleitung
 (`ERR_TOO_MANY_REDIRECTS`).
 
-**4. Domain im Repository aktivieren**
+**4. Domain im Repository aktivieren — zwei Stellen**
 
-**Settings → Secrets and variables → Actions → Variables → New variable**
+> **Achtung:** Beim Veröffentlichen über GitHub **Actions** reicht eine
+> `CNAME`-Datei im Build-Output *nicht* aus. Anders als beim Branch-Deploy
+> liest GitHub die Domain dann nicht aus der Datei, sondern nur aus der
+> Pages-Konfiguration. Beides muss gesetzt sein.
+
+a) **Settings → Pages → Custom domain** → Domain eintragen → *Save*.
+   Das ist die maßgebliche Einstellung.
+
+b) **Settings → Secrets and variables → Actions → Variables → New variable**
 
 ```
 Name:  CUSTOM_DOMAIN
 Value: deine-domain.de
 ```
 
-Danach **Actions → Deploy to GitHub Pages → Run workflow**. Der Workflow legt
-die Datei `CNAME` im Build-Output an, GitHub übernimmt die Domain automatisch.
+Damit schreibt der Workflow die Datei `CNAME` in den Build-Output, sodass die
+Domain bei künftigen Deployments nicht verloren geht.
+
+Danach **Actions → Deploy to GitHub Pages → Run workflow**.
 
 **5. HTTPS erzwingen**
 
-Wenn unter **Settings → Pages** „Enforce HTTPS" anwählbar wird (kann bis zu
-24 h dauern), Haken setzen. Fertig.
+Sobald GitHub das Zertifikat ausgestellt hat (meist wenige Minuten, laut
+Doku bis zu 24 h), unter **Settings → Pages** den Haken bei
+„Enforce HTTPS" setzen. Danach leiten `http://` und `www.` automatisch auf
+`https://deine-domain.de` weiter.
 
-Zum Zurückschalten auf `*.github.io` einfach die Variable `CUSTOM_DOMAIN`
-löschen und den Workflow erneut laufen lassen.
+Zum Zurückschalten auf `*.github.io`: Custom domain unter Settings → Pages
+leeren **und** die Variable `CUSTOM_DOMAIN` löschen.
+
+**Aktueller Stand dieses Projekts**
+
+| Adresse                            | Ergebnis                          |
+| ---------------------------------- | --------------------------------- |
+| `https://itsgoodpilates.com`       | 200 — die Seite                   |
+| `https://www.itsgoodpilates.com`   | 301 → `https://itsgoodpilates.com`|
+| `http://itsgoodpilates.com`        | 301 → `https://itsgoodpilates.com`|
+| `monacophranz.github.io/its-good-pilates` | 301 → `https://itsgoodpilates.com` |
+
+Zertifikat: Let's Encrypt, gültig für `itsgoodpilates.com` und
+`www.itsgoodpilates.com`.
 
 ## Alternative Hoster
 

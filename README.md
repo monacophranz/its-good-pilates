@@ -24,6 +24,31 @@ bun run build    # Ergebnis liegt in dist/
 Das Kontaktformular öffnet das E-Mail-Programm der Besucher:innen
 (`mailto:`). Die Zieladresse steht in `src/content.ts` unter `site.email`.
 
+## Impressum & Datenschutz
+
+Die Rechtsseiten liegen unter `/impressum/` und `/datenschutz/` und werden
+aus `src/legal.ts` gespeist.
+
+> **Noch zu erledigen:** In `src/legal.ts` stehen im Objekt `operator` mehrere
+> Felder mit `TODO`. Solange dort ein `TODO` steht, zeigen beide Seiten oben
+> einen Warnhinweis an. Auszufüllen sind:
+>
+> - `street` — Straße und Hausnummer (ladungsfähige Anschrift, Pflicht)
+> - `city` — PLZ und Ort
+> - `phone` — Telefonnummer
+> - `vatId` — USt-IdNr. **oder** der Hinweis auf die Kleinunternehmerregelung
+>
+> Sobald alle Felder befüllt sind, verschwindet der Hinweis automatisch.
+
+Die Texte sind eine sorgfältig erstellte Vorlage, ersetzen aber keine
+Rechtsberatung. Der Hinweis auf die EU-Streitschlichtungsplattform fehlt
+bewusst — die Plattform wurde zum 20. Juli 2025 eingestellt und der Link
+darf nicht mehr verwendet werden.
+
+Schriftarten werden lokal ausgeliefert (`@fontsource-variable`), es gibt
+keine Verbindung zu Google Fonts. Das vermeidet die Übermittlung der
+Besucher-IP an Google und hält die Datenschutzerklärung schlank.
+
 ## Auf GitHub Pages veröffentlichen
 
 1. Repository auf GitHub anlegen und diesen Ordner pushen:

@@ -178,4 +178,11 @@ export const contact = {
 export const footer = {
   instagramLabel: "Instagram",
   copyright: (year: number) => `© ${year} Caroline Philippi · München`,
+  /**
+   * Relative Pfade zu den Rechtsseiten. Sie werden je nach Seite mit einem
+   * Praefix kombiniert ("" auf der Startseite, "../" auf den Unterseiten),
+   * damit die Links auch unter einem Unterverzeichnis funktionieren.
+   */
+  impressumHref: "impressum/",
+  datenschutzHref: "datenschutz/",
 };

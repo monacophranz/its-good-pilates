@@ -1,3 +1,12 @@
+/*
+  Schriften lokal eingebunden (self-hosted).
+  Kein Request an fonts.googleapis.com / fonts.gstatic.com -> keine
+  Uebertragung der Besucher-IP an Google, kein DSGVO-Thema.
+*/
+@import "@fontsource-variable/cormorant-garamond/wght.css";
+@import "@fontsource-variable/cormorant-garamond/wght-italic.css";
+@import "@fontsource-variable/inter/wght.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,8 +17,9 @@
 */
 @layer base {
   :root {
-    --font-heading: "Cormorant Garamond", serif;
-    --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "Cormorant Garamond Variable", "Cormorant Garamond", Georgia,
+      serif;
+    --font-body: "Inter Variable", "Inter", "Helvetica Neue", Arial, sans-serif;
 
     --background: 40 15% 97%;
     --foreground: 0 0% 8%;

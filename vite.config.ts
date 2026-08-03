@@ -26,6 +26,16 @@ export default defineConfig({
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    rollupOptions: {
+      // Mehrseiten-Build: jede Seite wird als eigene HTML-Datei gebaut,
+      // damit /impressum/ und /datenschutz/ echte URLs sind (kein Router
+      // noetig, funktioniert auf jedem statischen Hoster).
+      input: {
+        main: "index.html",
+        impressum: "impressum/index.html",
+        datenschutz: "datenschutz/index.html",
+      },
+    },
   },
   optimizeDeps: {
     exclude: [

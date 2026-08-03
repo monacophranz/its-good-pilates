@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design-Tokens — 1:1 aus dem Original übernommen.
+  Farben sind HSL-Werte ohne hsl() Wrapper (Tailwind-Konvention).
+*/
+@layer base {
+  :root {
+    --font-heading: "Cormorant Garamond", serif;
+    --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+    --background: 40 15% 97%;
+    --foreground: 0 0% 8%;
+    --card: 40 12% 95%;
+    --card-foreground: 0 0% 8%;
+    --popover: 40 15% 97%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 40 15% 97%;
+    --secondary: 40 8% 92%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 40 8% 92%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 8%;
+    --accent-foreground: 40 15% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 8%;
+    --radius: 0px;
+
+    /* Hero-Hintergrund (Altrosa) */
+    --hero: #ebc5b4;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+    outline-color: hsl(var(--ring) / 0.5);
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+  }
+}

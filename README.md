@@ -46,6 +46,14 @@ Das Kontaktformular öffnet das E-Mail-Programm der Besucher:innen
 Weil in `vite.config.ts` `base: "./"` gesetzt ist, funktioniert die Seite sowohl
 unter einem Unterpfad (`/DEIN-REPO/`) als auch auf einer eigenen Domain.
 
+> **Wichtig:** Unter **Settings → Pages → Source** muss **GitHub Actions**
+> ausgewählt sein — nicht "Deploy from a branch".
+> Bei "Deploy from a branch" liefert GitHub die **unkompilierten Quelldateien**
+> aus dem Repo-Root aus. Der Browser versucht dann `/src/main.tsx` zu laden,
+> bekommt einen 404 bzw. einen Parse-Fehler, und die Seite bleibt leer.
+> Veröffentlicht werden darf nur der Build-Output aus `dist/` — genau das
+> erledigt der Workflow.
+
 ### Eigene Domain
 
 Domain unter **Settings → Pages → Custom domain** eintragen und beim

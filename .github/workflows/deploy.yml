@@ -18,21 +18,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build
+      - name: Build (Vite -> dist/)
         run: bun run build
 
-      - uses: actions/configure-pages@v5
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
@@ -43,5 +52,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4

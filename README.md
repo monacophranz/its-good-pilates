@@ -54,10 +54,64 @@ unter einem Unterpfad (`/DEIN-REPO/`) als auch auf einer eigenen Domain.
 > Veröffentlicht werden darf nur der Build-Output aus `dist/` — genau das
 > erledigt der Workflow.
 
-### Eigene Domain
+### Eigene Domain (Beispiel: Cloudflare)
 
-Domain unter **Settings → Pages → Custom domain** eintragen und beim
-Domain-Anbieter einen CNAME auf `DEIN-NAME.github.io` setzen.
+Die Domain wird über die Repository-Variable `CUSTOM_DOMAIN` gesteuert.
+Ist sie nicht gesetzt, läuft die Seite ganz normal unter `*.github.io`.
+
+**1. Bestehende Weiterleitungen entfernen**
+
+Falls die Domain aktuell woanders hin zeigt (z. B. eine alte Tilda-/Wix-Seite),
+zuerst in Cloudflare unter **Rules → Redirect Rules** bzw. **Page Rules** die
+Weiterleitung löschen. Cloudflare-Regeln greifen *vor* GitHub Pages — solange
+eine Redirect-Regel existiert, sieht niemand die neue Seite.
+
+**2. DNS-Einträge in Cloudflare setzen**
+
+Alte `A`/`AAAA`/`CNAME`-Einträge für `@` und `www` löschen, dann:
+
+| Typ   | Name  | Inhalt                    | Proxy    |
+| ----- | ----- | ------------------------- | -------- |
+| A     | `@`   | `185.199.108.153`         | DNS only |
+| A     | `@`   | `185.199.109.153`         | DNS only |
+| A     | `@`   | `185.199.110.153`         | DNS only |
+| A     | `@`   | `185.199.111.153`         | DNS only |
+| AAAA  | `@`   | `2606:50c0:8000::153`     | DNS only |
+| AAAA  | `@`   | `2606:50c0:8001::153`     | DNS only |
+| AAAA  | `@`   | `2606:50c0:8002::153`     | DNS only |
+| AAAA  | `@`   | `2606:50c0:8003::153`     | DNS only |
+| CNAME | `www` | `DEIN-NAME.github.io`     | DNS only |
+
+> **Proxy zwingend auf „DNS only" (graue Wolke).** Bei orangener Wolke kann
+> GitHub das Let's-Encrypt-Zertifikat nicht ausstellen und „Enforce HTTPS"
+> bleibt gesperrt. Erst wenn das Zertifikat steht, kann der Proxy optional
+> wieder aktiviert werden.
+
+**3. Cloudflare SSL/TLS**
+
+Unter **SSL/TLS → Overview** auf **Full (strict)** stellen.
+`Flexible` erzeugt zusammen mit GitHub Pages eine Endlos-Weiterleitung
+(`ERR_TOO_MANY_REDIRECTS`).
+
+**4. Domain im Repository aktivieren**
+
+**Settings → Secrets and variables → Actions → Variables → New variable**
+
+```
+Name:  CUSTOM_DOMAIN
+Value: deine-domain.de
+```
+
+Danach **Actions → Deploy to GitHub Pages → Run workflow**. Der Workflow legt
+die Datei `CNAME` im Build-Output an, GitHub übernimmt die Domain automatisch.
+
+**5. HTTPS erzwingen**
+
+Wenn unter **Settings → Pages** „Enforce HTTPS" anwählbar wird (kann bis zu
+24 h dauern), Haken setzen. Fertig.
+
+Zum Zurückschalten auf `*.github.io` einfach die Variable `CUSTOM_DOMAIN`
+löschen und den Workflow erneut laufen lassen.
 
 ## Alternative Hoster
 

@@ -40,6 +40,13 @@ jobs:
       - name: Add .nojekyll
         run: touch dist/.nojekyll
 
+      # Eigene Domain: nur aktiv, wenn die Repository-Variable CUSTOM_DOMAIN
+      # gesetzt ist (Settings -> Secrets and variables -> Actions -> Variables).
+      # Ohne Variable bleibt die Seite unter *.github.io erreichbar.
+      - name: Add CNAME (custom domain)
+        if: vars.CUSTOM_DOMAIN != ''
+        run: echo "${{ vars.CUSTOM_DOMAIN }}" > dist/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

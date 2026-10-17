@@ -19,6 +19,9 @@ bun run build    # Ergebnis liegt in dist/
 | Portraitfoto                          | `src/assets/caroline-philippi.jpg` |
 | Favicon                               | `public/favicon.png`               |
 | Seitentitel / SEO-Beschreibung        | `index.html` (DE), `en/index.html` (EN) |
+| Digitale Visitenkarte für Google (Name, Ort, Instagram) | `<script type="application/ld+json">` in `index.html` und `en/index.html` |
+| Vorschaubild beim Teilen von Links    | `public/og-image.jpg` (DE), `public/og-image-en.jpg` (EN), 1200 × 630 px |
+| Seitenliste für Google (Sitemap)      | `public/sitemap.xml` (neue Unterseiten hier eintragen), `public/robots.txt` |
 | Layout einzelner Abschnitte           | `src/components/`                  |
 
 Das Kontaktformular öffnet das E-Mail-Programm der Besucher:innen

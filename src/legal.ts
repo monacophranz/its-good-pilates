@@ -19,9 +19,9 @@ const TODO = "TODO";
 export const operator = {
   name: "Caroline Philippi",
   /** Strasse + Hausnummer der ladungsfaehigen Anschrift */
-  street: `${TODO}: Straße und Hausnummer`,
+  street: "Baaderstraße 15",
   /** PLZ + Ort */
-  city: `${TODO}: PLZ München`,
+  city: "80469 München",
   country: "Deutschland",
   email: site.email,
   /** Telefonnummer — § 5 DDG verlangt eine schnelle Kontaktaufnahme */

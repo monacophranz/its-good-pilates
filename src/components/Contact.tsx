@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react";
-import { contact, site } from "../content";
+import { contact, site, ui } from "../content";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -7,9 +7,9 @@ export default function Contact() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent(site.mailSubject);
+    const subject = encodeURIComponent(ui.mailSubject);
     const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+      `${ui.mailName}: ${form.name}\n${ui.mailEmail}: ${form.email}\n\n${form.message}`,
     );
     window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
     setSent(true);

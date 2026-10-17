@@ -1,5 +1,4 @@
 import { footer, site } from "../content";
-import { legalNav } from "../legal";
 
 type Props = {
   /** "" auf der Startseite, "../" auf den Unterseiten */
@@ -23,13 +22,13 @@ export default function Footer({ prefix = "" }: Props) {
             href={`${prefix}${footer.impressumHref}`}
             className="text-xs tracking-[0.18em] uppercase text-muted-foreground font-body hover:text-foreground transition-colors duration-200"
           >
-            {legalNav.impressum}
+            {footer.impressumLabel}
           </a>
           <a
             href={`${prefix}${footer.datenschutzHref}`}
             className="text-xs tracking-[0.18em] uppercase text-muted-foreground font-body hover:text-foreground transition-colors duration-200"
           >
-            {legalNav.datenschutz}
+            {footer.datenschutzLabel}
           </a>
           <a
             href={site.instagramUrl}

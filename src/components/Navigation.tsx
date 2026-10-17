@@ -1,5 +1,39 @@
 import { useEffect, useState } from "react";
-import { navItems, site } from "../content";
+import { lang, languageHref, languages, navItems, site, ui } from "../content";
+
+function LanguageSwitch() {
+  return (
+    <div
+      className="flex items-center gap-2 text-xs tracking-[0.18em] uppercase font-body"
+      role="group"
+      aria-label={ui.languageSwitch}
+    >
+      {languages.map((language, index) => (
+        <span key={language.code} className="flex items-center gap-2">
+          {index > 0 && (
+            <span aria-hidden="true" className="text-muted-foreground">
+              /
+            </span>
+          )}
+          <a
+            href={languageHref(language.code)}
+            hrefLang={language.code}
+            lang={language.code}
+            aria-label={language.name}
+            aria-current={language.code === lang ? "true" : undefined}
+            className={`transition-opacity ${
+              language.code === lang
+                ? "text-foreground"
+                : "text-foreground opacity-40 hover:opacity-80"
+            }`}
+          >
+            {language.label}
+          </a>
+        </span>
+      ))}
+    </div>
+  );
+}
 
 function InstagramIcon() {
   return (
@@ -73,13 +107,16 @@ export default function Navigation() {
                 {item.label}
               </button>
             ))}
+            <LanguageSwitch />
           </div>
 
+          <div className="md:hidden flex items-center gap-6">
+            <LanguageSwitch />
           <button
             type="button"
             className="md:hidden flex flex-col gap-1.5 p-1"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
+            aria-label={ui.menu}
             aria-expanded={menuOpen}
           >
             <span
@@ -98,6 +135,7 @@ export default function Navigation() {
               }`}
             />
           </button>
+          </div>
         </div>
       </nav>
 

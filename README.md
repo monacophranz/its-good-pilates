@@ -14,15 +14,33 @@ bun run build    # Ergebnis liegt in dist/
 
 | Was                                   | Datei                              |
 | ------------------------------------- | ---------------------------------- |
-| Texte, Preise, Links, E-Mail-Adresse  | `src/content.ts`                   |
+| Texte, Preise, Links, E-Mail-Adresse  | `src/content.ts` (Deutsch und Englisch) |
 | Farben & Schriften                    | `src/index.css` (`:root`)          |
 | Portraitfoto                          | `src/assets/caroline-philippi.jpg` |
 | Favicon                               | `public/favicon.png`               |
-| Seitentitel / SEO-Beschreibung        | `index.html`                       |
+| Seitentitel / SEO-Beschreibung        | `index.html` (DE), `en/index.html` (EN) |
 | Layout einzelner Abschnitte           | `src/components/`                  |
 
 Das Kontaktformular öffnet das E-Mail-Programm der Besucher:innen
 (`mailto:`). Die Zieladresse steht in `src/content.ts` unter `site.email`.
+
+## Sprachen
+
+Die Seite gibt es auf Deutsch (Standard, `/`) und Englisch (`/en/`). Oben in
+der Navigation wechselt „DE / EN“ zwischen beiden. Alle Texte stehen in
+`src/content.ts` im Objekt `texts`, einmal unter `de` und einmal unter `en`.
+Wer einen Text ändert, passt ihn in beiden Sprachen an. Impressum und
+Datenschutz gibt es nur auf Deutsch.
+
+## Ältere Stände wiederherstellen
+
+Jede Änderung ist in der Git-Historie gespeichert und kann zurückgenommen
+werden. Zusätzlich gibt es feste Sicherungen als Zweige mit dem Namen
+`sicherung/<datum>-<beschreibung>`, z. B.
+`sicherung/2026-10-17-vor-zweisprachigkeit`. Änderungen entstehen zuerst in
+einem eigenen Arbeitszweig; dort baut GitHub die Seite zur Probe
+(`.github/workflows/check.yml`), ohne sie zu veröffentlichen. Live geht erst,
+was in `main` übernommen wird.
 
 ## Impressum & Datenschutz
 

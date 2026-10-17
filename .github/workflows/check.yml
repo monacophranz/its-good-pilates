@@ -1,0 +1,35 @@
+name: Probe-Bau (ohne Veröffentlichung)
+
+# Baut jede Arbeitsversion (alle Zweige ausser main), damit Fehler
+# auffallen, bevor etwas live geht. Veröffentlicht wird hier nichts.
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build (Vite -> dist/)
+        run: bun run build
+
+      - name: Pruefen, ob alle Seiten entstanden sind
+        run: |
+          for f in dist/index.html dist/en/index.html dist/impressum/index.html dist/datenschutz/index.html; do
+            test -f "$f" || { echo "Fehlt: $f"; exit 1; }
+          done

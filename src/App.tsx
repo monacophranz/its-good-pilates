@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Method from "./components/Method";
 import Navigation from "./components/Navigation";
 import Pricing from "./components/Pricing";
+import { rootPrefix } from "./content";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
       <Method />
       <Pricing />
       <Contact />
-      <Footer />
+      <Footer prefix={rootPrefix} />
     </div>
   );
 }

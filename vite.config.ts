@@ -32,6 +32,7 @@ export default defineConfig({
       // noetig, funktioniert auf jedem statischen Hoster).
       input: {
         main: "index.html",
+        en: "en/index.html",
         impressum: "impressum/index.html",
         datenschutz: "datenschutz/index.html",
       },

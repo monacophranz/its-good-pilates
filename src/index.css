@@ -57,3 +57,17 @@
     font-family: var(--font-body);
   }
 }
+
+/*
+  Startbereich: Inhalte nach der tatsaechlich SICHTBAREN Bildschirmhoehe
+  ausrichten. Auf dem Handy (v. a. iPhone/Safari) ist "100vh" so hoch wie
+  der Bildschirm OHNE Adressleiste — der Text rutscht dann unter die
+  Leiste. "100svh" ist die Hoehe MIT eingeblendeter Leiste. Aeltere
+  Browser ohne svh-Unterstuetzung nutzen weiter 100vh.
+  Der rosa Hintergrund (section mit min-h-screen) fuellt weiterhin den
+  ganzen Bildschirm.
+*/
+.hero-visible-height {
+  height: 100vh;
+  height: 100svh;
+}

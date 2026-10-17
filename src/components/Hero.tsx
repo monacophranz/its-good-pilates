@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col">
       <div className="absolute inset-0 bg-hero" />
 
-      <div className="relative z-10 flex flex-col justify-end h-screen px-6 md:px-16 pb-16 md:pb-24">
+      <div className="relative z-10 flex flex-col justify-end hero-visible-height px-6 md:px-16 pb-28 md:pb-24">
         <div
           className={`transition-all duration-1000 ease-out ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -30,7 +30,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="absolute bottom-8 right-8 md:right-16 flex flex-col items-center gap-2 opacity-60">
+        <div className="absolute bottom-28 md:bottom-8 right-8 md:right-16 flex flex-col items-center gap-2 opacity-60">
           <span
             className="text-xs tracking-[0.2em] uppercase text-primary-foreground font-body"
             style={{ writingMode: "vertical-rl" }}

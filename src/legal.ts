@@ -25,13 +25,13 @@ export const operator = {
   country: "Deutschland",
   email: site.email,
   /** Telefonnummer — § 5 DDG verlangt eine schnelle Kontaktaufnahme */
-  phone: `${TODO}: Telefonnummer`,
+  phone: "(089) 26010632",
   /**
    * Umsatzsteuer-Identifikationsnummer nach § 27a UStG.
    * Als Kleinunternehmerin nach § 19 UStG stattdessen eintragen:
    * "Kleinunternehmerin gemäß § 19 UStG — kein Ausweis von Umsatzsteuer"
    */
-  vatId: `${TODO}: USt-IdNr. oder Kleinunternehmer-Hinweis`,
+  vatId: "Kleinunternehmerin gemäß § 19 UStG — kein Ausweis von Umsatzsteuer",
 };
 
 /** true, solange irgendwo noch ein TODO steht */

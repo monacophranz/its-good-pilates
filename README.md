@@ -29,16 +29,9 @@ Das Kontaktformular öffnet das E-Mail-Programm der Besucher:innen
 Die Rechtsseiten liegen unter `/impressum/` und `/datenschutz/` und werden
 aus `src/legal.ts` gespeist.
 
-> **Noch zu erledigen:** In `src/legal.ts` stehen im Objekt `operator` mehrere
-> Felder mit `TODO`. Solange dort ein `TODO` steht, zeigen beide Seiten oben
-> einen Warnhinweis an. Auszufüllen sind:
->
-> - `street` — Straße und Hausnummer (ladungsfähige Anschrift, Pflicht)
-> - `city` — PLZ und Ort
-> - `phone` — Telefonnummer
-> - `vatId` — USt-IdNr. **oder** der Hinweis auf die Kleinunternehmerregelung
->
-> Sobald alle Felder befüllt sind, verschwindet der Hinweis automatisch.
+Die Angaben der Betreiberin (Anschrift, Telefon, Umsatzsteuer-Hinweis) stehen
+in `src/legal.ts` im Objekt `operator`. Steht dort irgendwo wieder ein `TODO`,
+zeigen beide Seiten oben automatisch einen Warnhinweis an.
 
 Die Texte sind eine sorgfältig erstellte Vorlage, ersetzen aber keine
 Rechtsberatung. Der Hinweis auf die EU-Streitschlichtungsplattform fehlt

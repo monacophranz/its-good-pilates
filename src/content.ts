@@ -155,7 +155,7 @@ const texts = {
       titleLine1: "Personal Training",
       titleEm: "Pakete",
       body: "Alle Stunden sind Einzeltrainings und finden in München statt. Melde dich gern, um Ort und Termine abzustimmen.",
-      note: "Preise in Euro. Alle Stunden nach Vereinbarung. Die erste Stunde enthält eine ausführliche Bewegungsanalyse ohne Aufpreis.",
+      note: "Preise in Euro. Alle Stunden nach Vereinbarung.",
       cta: "Stunde buchen",
       /** Welches Paket ist beim Laden hervorgehoben? (id) */
       defaultSelected: "five",
@@ -324,7 +324,7 @@ const texts = {
       titleLine1: "Personal Training",
       titleEm: "Packages",
       body: "All sessions are one-to-one and take place in München. Get in touch to discuss location and scheduling.",
-      note: "Prices are in EUR. All sessions by appointment. First session includes a full movement assessment at no extra charge.",
+      note: "Prices are in EUR. All sessions by appointment.",
       cta: "Book a Session",
       defaultSelected: "five",
       packages: [

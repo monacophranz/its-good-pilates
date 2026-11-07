@@ -88,7 +88,7 @@ export default function Pricing() {
                       €
                     </span>
                     <span
-                      className={`font-heading text-5xl md:text-6xl tracking-tight ${
+                      className={`font-heading text-5xl md:text-6xl leading-[1.25] tracking-tight ${
                         active ? "text-primary-foreground" : "text-foreground"
                       }`}
                     >
@@ -96,7 +96,7 @@ export default function Pricing() {
                     </span>
                   </div>
                   <p
-                    className={`text-xs font-body mt-1 ${
+                    className={`text-xs font-body mt-2 ${
                       active
                         ? "text-primary-foreground/50"
                         : "text-muted-foreground"

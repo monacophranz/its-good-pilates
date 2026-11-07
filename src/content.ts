@@ -180,7 +180,6 @@ const texts = {
           includes: [
             "5 × 60 Minuten Einzeltraining",
             "Individuelles Programm",
-            "Fortschrittsgespräch",
             "6 Monate gültig",
           ],
           tag: "Am beliebtesten",
@@ -196,7 +195,6 @@ const texts = {
           includes: [
             "10 × 60 Minuten Einzeltraining",
             "Individuelles Programm",
-            "Regelmäßige Fortschrittsgespräche",
             "9 Monate gültig",
           ],
         },
@@ -350,7 +348,6 @@ const texts = {
           includes: [
             "5 × 60-minute private sessions",
             "Personalised programme",
-            "Progress review",
             "Valid for 6 months",
           ],
           tag: "Most popular",
@@ -366,7 +363,6 @@ const texts = {
           includes: [
             "10 × 60-minute private sessions",
             "Personalised programme",
-            "Regular progress reviews",
             "Valid for 9 months",
           ],
         },

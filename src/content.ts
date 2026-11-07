@@ -166,13 +166,8 @@ const texts = {
           price: "120",
           unit: "/ Stunde",
           description:
-            "Eine Privatstunde, ganz auf dich abgestimmt. Ideal, um die Methode kennenzulernen oder nach einer Pause wieder einzusteigen.",
-          includes: [
-            "60 Minuten Einzeltraining",
-            "Individuelles Programm",
-            "Bewegungsanalyse",
-            "Notizen zur Nachbereitung",
-          ],
+            "Eine Privatstunde auf Großgeräten, ganz auf dich abgestimmt.",
+          includes: ["60 Minuten Einzeltraining", "Individuelles Programm"],
         },
         {
           id: "five",
@@ -344,13 +339,8 @@ const texts = {
           price: "120",
           unit: "/ session",
           description:
-            "One private session tailored entirely to you. Ideal for trying the method or returning after a break.",
-          includes: [
-            "60-minute private session",
-            "Personalised programme",
-            "Movement assessment",
-            "Follow-up notes",
-          ],
+            "One private session on the large apparatus, tailored entirely to you.",
+          includes: ["60-minute private session", "Personalised programme"],
         },
         {
           id: "five",

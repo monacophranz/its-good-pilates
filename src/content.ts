@@ -104,8 +104,15 @@ const texts = {
       imageCaption: "Caroline Philippi",
       imageAlt: "Caroline Philippi — Pilates-Trainerin",
       facts: [
-        { label: "Zertifiziert", value: "KEEP IN MOTION Mat Classic Lizenz" },
-        { label: "Ausbildung", value: "STOTT Vollzertifizierung (laufend)" },
+        {
+          label: "Zertifiziert",
+          value: "Fully Certified STOTT PILATES® Instructor",
+        },
+        {
+          label: "Geräte",
+          value: "Mat · Reformer · Cadillac · Chair · Barrels",
+        },
+        { label: "Lizenz", value: "KEEP IN MOTION Mat Classic Lizenz" },
         { label: "Mitglied", value: "DPV — Deutscher Pilates Verband" },
       ],
     },
@@ -273,8 +280,15 @@ const texts = {
       imageCaption: "Caroline Philippi",
       imageAlt: "Caroline Philippi — Pilates Coach",
       facts: [
-        { label: "Certified", value: "KEEP IN MOTION mat classic license" },
-        { label: "Training", value: "STOTT full certification (ongoing)" },
+        {
+          label: "Certified",
+          value: "Fully Certified STOTT PILATES® Instructor",
+        },
+        {
+          label: "Apparatus",
+          value: "Mat · Reformer · Cadillac · Chair · Barrels",
+        },
+        { label: "License", value: "KEEP IN MOTION mat classic license" },
         { label: "Member", value: "DPV — Deutscher Pilates Verband" },
       ],
     },
